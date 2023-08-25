@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import './Login.css'
 import { FaFacebookF, FaInstagram, FaTwitter } from "react-icons/fa";
-import Icon from "./Icon";
+import Icon from "../component/Icon";
 import { Link } from "react-router-dom";
 
-
  
-export default function Login() {
+const Login =()=> {
 
   const FacebookBackground =
   "linear-gradient(to right, #0546A0 0%, #0546A0 40%, #663FB6 100%)";
@@ -23,17 +22,17 @@ const TwitterBackground =
   // User Login info
   const database = [
     {
-      username: "user1",
-      password: "pass1"
+      useremail: "user1",
+        password: "pass1"
     },
     {
-      username: "user2",
+      useremail: "user1",
       password: "pass2"
     }
   ];
 
   const errors = {
-    uname: "invalid username",
+    mail: "invalid UserEmail",
     pass: "invalid password"
   };
 
@@ -41,10 +40,10 @@ const TwitterBackground =
     //Prevent page reload
     event.preventDefault();
 
-    var { uname, pass } = document.forms[0];
+    var { mail, pass } = document.forms[0];
 
     // Find user login info
-    const userData = database.find((user) => user.username === uname.value);
+    const userData = database.find((user) => user.useremail === mail.value);
 
     // Compare user info
     if (userData) {
@@ -56,7 +55,7 @@ const TwitterBackground =
       }
     } else {
       // Username not found
-      setErrorMessages({ name: "uname", message: errors.uname });
+      setErrorMessages({ name: "mail", message: errors.mail });
     }
   };
 
@@ -73,15 +72,13 @@ const TwitterBackground =
       <form onSubmit={handleSubmit}>
        
           
-      <div >  <input placeholder="Username" className="input-container" type="text" name="uname" required />
-          {renderErrorMessage("uname")}
+      <div >  <input placeholder="Email" className="input-container" type="text" name="mail" required />
+          {renderErrorMessage("mail")}
          </div><br></br>
-       
          <div >  <input placeholder="Password" className="input-container" type="password" name="pass" requiredy />
           {renderErrorMessage("pass")}</div>
         
-        
-         <div > <button  className="button-container"   > Sign Up</button>
+          <div  > <button  className="button-container"  > Sign In </button>
         </div>
         <div className="LoginWith" >OR Login With</div>
         <div className="HorizontalRule"  />
@@ -95,9 +92,16 @@ const TwitterBackground =
         </Icon>
         <Icon color={TwitterBackground}><a href="https://www.twitter.com/">
           <FaTwitter /></a>
-        </Icon> </div>
-<div className="forgotpass">  <a href="src\UpdatePass.jsx" > Forgot Password ?</a></div>
-    </form>
+          </Icon> </div></form>
+
+<label className="mt-2">
+     <p className="t"><Link to="/Registration"  className="link"> Create Account </Link>
+</p> </label> <br></br>
+
+<div ><Link to="/ForgotPasswordPage" className="link"> Forgot PassWord?</Link>
+</div><br></br>
+<div ><Link to="/todo" className="link"> todo</Link>
+</div>
     </div>
   );
 
@@ -105,9 +109,10 @@ const TwitterBackground =
     <div className="app">
       <div className="login-form">
        <div  className="icon-container"> </div>
-        <div className="forgotpass" ></div>
-        {isSubmitted ? <div className="message">User is successfully logged in</div> : renderForm}
+       {isSubmitted ? <div className="message">User is successfully logged in</div> : renderForm}
       </div>
-    </div>
+      </div>
+    
   );
 }
+export default Login;
