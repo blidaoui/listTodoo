@@ -88,7 +88,7 @@ const Registration = ()=> {
          </div>
          <br></br>
         
-        <div > <button  className="button-container"> create an account</button>
+        <div > <button  className="button-container"> create account</button>
         </div > 
 
 

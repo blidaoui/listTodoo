@@ -2,7 +2,7 @@ import React from 'react'
 import {BrowserRouter , Routes, Route } from 'react-router-dom';
 import Registration from './pages/Registration';
 import Login from "./pages/Login"
-import Todo from "./components/Todo" 
+import Todo from "./pages/Todo" 
 function App() {
   return (  
      <div className="App">

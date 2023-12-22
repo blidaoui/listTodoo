@@ -3,11 +3,11 @@ import React, { Fragment } from "react";
 
 //components
 
-import InputTodo from "./InputTodo";
-import ListTodos from "./ListTodos";
+import InputTodo from "../components/InputTodo";
+import ListTodos from "../components/ListTodos";
 
 
-function todos() {
+function todo() {
   return (
     <Fragment>
       <div className="todoform">
@@ -19,4 +19,4 @@ function todos() {
   );
 }
 
-export default todos;
+export default todo;
